@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.gfipm.idp.piv</groupId>
+    <artifactId>piv-login-handler</artifactId>
+    <version>0.4.0</version>
+    <packaging>jar</packaging>
+
+    <name>PIV LoginHandler</name>
+    
+    <repositories>
+        <repository>
+            <id>shibboleth.internet2.edu</id>
+            <name>Internet2</name>
+            <layout>default</layout>
+            <url>https://build.shibboleth.net/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependencies>
+        <!-- Compile dependencies -->
+        
+        <!-- Provided dependencies -->
+        <dependency>
+            <groupId>edu.internet2.middleware</groupId>
+            <artifactId>shibboleth-identityprovider</artifactId>
+            <version>2.2.1</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+           <groupId>org.bouncycastle</groupId>
+           <artifactId>bcprov-jdk16</artifactId>
+           <version>1.46</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gtri.gfipm.bae</groupId>
+            <artifactId>bae-api</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Runtime dependencies -->
+
+        <!-- Test dependencies -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <debug>true</debug>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/bin.xml</descriptor>
+                        <descriptor>src/main/assembly/src.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+<!--
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <links>
+                        <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                    </links>
+                    <quiet>true</quiet>
+                    <author>false</author>
+                    <version>true</version>
+                    <doctitle>${project.name} ${project.version} Java API.</doctitle>
+                    <windowtitle>${project.name} ${project.version} Java API.</windowtitle>
+                    <overview>src/main/java/overview.html</overview>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+   --> 
+    
+    <!-- Project Metadata -->
+    <url>https://github.com/organizations/gtri-iead</url>
+    
+    <inceptionYear>2013</inceptionYear>
+        <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>package</distribution>
+        </license>
+    </licenses>
+    
+    <organization>
+        <name>GTRI</name>
+        <url>http://www.gtri.gatech.edu/</url>
+    </organization>
+
+</project>
