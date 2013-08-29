@@ -21,7 +21,7 @@ PIV Login Handler
 This login handler is heavily based on the X.509 Login Handler developed
 by Switch.  More information about their login handler can be found here:
 
-  https://spaces.internet2.edu/display/SHIB2/X.509+Login+Handler
+  https://wiki.shibboleth.net/confluence/display/SHIB2/X.509+Login+Handler
 
 The installation process is identical to the Switch handler as all that has
 changed is the certificate parsing code, as this handler strictly looks for 
