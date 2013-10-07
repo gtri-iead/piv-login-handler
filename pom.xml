@@ -17,13 +17,8 @@
 
     <repositories>
         <repository>
-            <id>shibboleth.internet2.edu</id>
-            <name>Internet2</name>
-            <layout>default</layout>
-            <url>https://build.shibboleth.net/nexus/content/groups/public</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+           <id>central</id>
+           <url>http://repo1.maven.org/maven2</url>
         </repository>
         <repository>
             <id>gtri-external</id>
@@ -37,6 +32,16 @@
             <url>https://maven.gtri.gatech.edu/repos/external-snapshots</url>
             <snapshots>
                 <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>shibboleth.internet2.edu</id>
+            <name>Internet2</name>
+            <layout>default</layout>
+            <url>https://build.shibboleth.net/nexus/content/groups/public</url>
+            <snapshots>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
     </repositories>
@@ -86,10 +91,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <descriptors>
-                        <descriptor>src/main/assembly/bin.xml</descriptor>
-                        <descriptor>src/main/assembly/src.xml</descriptor>
-                    </descriptors>
+                    <descriptorRefs>
+                        <descriptorRef>bin</descriptorRef>
+                        <descriptorRef>src</descriptorRef>
+                    </descriptorRefs>
                 </configuration>
                 <executions>
                     <execution>
